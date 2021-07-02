@@ -7,11 +7,6 @@
 
 
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-
-#define BUFFERSIZE 16
 
 
 int main(void) {
