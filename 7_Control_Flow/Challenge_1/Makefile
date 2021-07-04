@@ -1,6 +1,6 @@
 # Makefile
 
-NAME = Example
+NAME = Challenge
 ODIR = Sources
 SRC = ${ODIR}/main.c
 OBJ = ${SRC:.c=.o}
