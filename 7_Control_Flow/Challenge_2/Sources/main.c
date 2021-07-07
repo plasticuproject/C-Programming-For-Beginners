@@ -72,7 +72,7 @@ int main(void) {
     while(guessCount > 0) {    // keeps track the number of user guesses
 
         // Give user how many tries remaining and prompt for input
-        printf("\nYou have %d tries left.\n", guessCount);
+        printf("\nYou have %d tr%s left.\n", guessCount, guessCount == 1 ? "y" : "ies");
         printf("Enter a guess: ");
         fgets(buffer, BUFFERSSIZE, stdin);
         userGuess = atoi(buffer);
@@ -113,7 +113,7 @@ int main(void) {
 
     // if user guessed incorrect HIGH_RANGE times, tell them they lost and quit
     if((guessCount == 0) && (userGuess != randomNumber)) {
-        printf("\nSorry, you loose. The number was %d\n", randomNumber);
+        printf("\nSorry, you loose. The number was %d\n.", randomNumber);
     }
 
 
