@@ -12,7 +12,7 @@
 #include <time.h>
 
 
-#define BUFFERSSIZE 8
+#define BUFFERSIZE 100
 #define GUESS_COUNT 5
 #define LOW_RANGE 0
 #define HIGH_RANGE 20
@@ -28,7 +28,7 @@ int main(void) {
      *  * User should only be able to enter numbers from 1-20
      *
      * The program will indicate to the user if the guess is too high or low
-     * The play wins the game if they can guess the number in 5 tries
+     * The player wins the game if they can guess the number in 5 tries
      *
      * Output should look as follows:
      *
@@ -60,10 +60,8 @@ int main(void) {
     int randomNumber = rand() % (HIGH_RANGE + 1);
 
     // Declare and/or initialize remaining local variables needed
-    char buffer[BUFFERSSIZE];
-    int maxLength = 1;
-    int userGuess;
-    int guessCount = GUESS_COUNT;
+    char buffer[BUFFERSIZE];
+    int userGuess, maxLength = 1, guessCount = GUESS_COUNT;
 
     // Determine number of digits in HIGH_RANGE to avoid overflow
     for(int n = HIGH_RANGE; n != 0; n /= 10) { maxLength++; }
@@ -74,7 +72,7 @@ int main(void) {
         // Give user how many tries remaining and prompt for input
         printf("\nYou have %d tr%s left.\n", guessCount, guessCount == 1 ? "y" : "ies");
         printf("Enter a guess: ");
-        fgets(buffer, BUFFERSSIZE, stdin);
+        fgets(buffer, BUFFERSIZE, stdin);
         userGuess = atoi(buffer);
 
         // Make sure input length is in bounds
