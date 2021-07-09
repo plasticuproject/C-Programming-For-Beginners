@@ -10,7 +10,8 @@
 #include <stdlib.h>
 
 
-#define BUFFERSIZE 8
+#define BUFFERSIZE    8
+#define MONTHS       12
 
 
 int main(void){
@@ -49,6 +50,21 @@ int main(void){
     average = (float)sum / count;                 // Average
     if((grades[9] <= 100) && (average != 0)) {    // Make sure all grades were entered
         printf("\nAverage of the 10 grades is: %.2f\n", average);
+    }
+
+    // Initalizing an array
+    // * int integers[5] = { 0, 0, 0, 0, 0 };
+    // Not nescessary, but a good idea
+    // You can initialize the first x elements and the rest
+    //   will default to 0 or (NULL?)
+    //   * float things[500] = { 100.5, 200.5, 300.5 };
+    // C99 aded a feature called designated initializers which
+    //   allows you to pick and choose in any order
+    //   * float sample[500] = { [2] = 500.5, [1] = 300.0, [0] = 100.0 };
+    
+    int days[MONTHS] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+    for(int index = 0; index < MONTHS; index++) {
+        printf("Month %d has %2d days.\n", (index + 1), days[index]);
     }
 
 
