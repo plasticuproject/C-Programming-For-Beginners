@@ -12,14 +12,13 @@
 int main(void) {
 
     /*
-     * Create a program that will fine all the primes from 3-100
+     * Create a program that will find all the primes from 3-100
      * No input to the program
      * Output will be each prime number seperated by a space on a single line
      * Need to create an array that will store each prime number as generated
      * Can hard code the first two primes (2 and 3) in the array
      * Utilize loops to only find prime numbers up to 100 and a loop to print
      *   out the primes array
-     *
     */
 
 
@@ -41,7 +40,8 @@ int main(void) {
         //   of current number in array
         for(int i = 1; isPrime && ((p / primes[i]) >= primes[i]); i++) {
 
-            // if canditate divded by current number in array, set boolean to FALSE
+            // If canditate divided by current number in array doesn't have a
+            //   remainder, set boolean to FALSE
             if(p % primes[i] == 0) { isPrime = 0; }
         }
         if(isPrime) {                    // If boolean remains TRUE after array loop
@@ -51,8 +51,8 @@ int main(void) {
     }
 
     // Loop through primes array and print each element
-    for(int i = 0; i < 50; i++) {
-        if(primes[i] != 0) { printf("%d ", primes[i]); }
+    for(int i = 0; primes[i] && i < 50; i++) {
+        printf("%d ", primes[i]);
     }
     printf("\n");                        // Print newline for cleaner output
 
