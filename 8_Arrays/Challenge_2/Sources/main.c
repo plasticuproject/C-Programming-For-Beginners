@@ -56,14 +56,14 @@ int main(void) {
         { 1.5, 4.1, 0.7, 2.2, 1.3, 5.4, 6.4, 9.3, 3.2, 9.1, 2.4, 4.5 },
     };
 
-    // Declare and initialize arrays for year and month names
-    char *years[5] = { "2010", "2011", "2012", "2013", "2014" };
+    // Declare and initialize array for month names
     char *months[12] = {
         "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep",
         "Oct", "Nov", "Dec"
     };
 
     // Declare and initialize local variables
+    int years = 2010;
     float yearSum = 0.0;
     float totalYearsSum = 0.0;
     float monthlyTotals[12] = { 0.0 };
@@ -75,9 +75,10 @@ int main(void) {
             yearSum += rainData[year][month];                // Monthly totals for year
             monthlyTotals[month] += rainData[year][month];   // Monthly totals for years
         }
-        printf("%s\t  %.1f\n", years[year], yearSum);        // Print yearly total
+        printf("%d\t  %.1f\n", years, yearSum);              // Print yearly total
         totalYearsSum += yearSum;                            // Add yearly totals
         yearSum = 0.0;                                       // Reset for new year
+        years += 1;                                          // Increment years number
     }
 
     // Print yearly totals divided by number of years
