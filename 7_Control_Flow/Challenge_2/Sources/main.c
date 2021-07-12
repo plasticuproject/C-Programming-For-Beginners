@@ -61,6 +61,7 @@ int main(void) {
 
     // Declare and/or initialize remaining local variables needed
     char buffer[BUFFERSIZE];
+    char *userInput;
     int userGuess, maxLength = 1, guessCount = GUESS_COUNT;
 
     // Determine number of digits in HIGH_RANGE to avoid overflow
@@ -72,11 +73,11 @@ int main(void) {
         // Give user how many tries remaining and prompt for input
         printf("\nYou have %d tr%s left.\n", guessCount, guessCount == 1 ? "y" : "ies");
         printf("Enter a guess: ");
-        fgets(buffer, BUFFERSIZE, stdin);
-        userGuess = atoi(buffer);
+        userInput = fgets(buffer, BUFFERSIZE, stdin);
+        userGuess = atoi(userInput);
 
         // Make sure input length is in bounds
-        if(strlen(buffer) > maxLength) {
+        if(strlen(userInput) > maxLength) {
             printf("Invaild guess, stay in range %d - %d.\n", LOW_RANGE, HIGH_RANGE);
             continue;
         }

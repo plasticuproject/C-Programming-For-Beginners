@@ -31,21 +31,22 @@ int main(void) {
      // IF, ELSE and TERNARY
     int number_to_test, remainder;
     char buffer[BUFFERSIZE];
-    char* your_status = NULL;
+    char *choice;
+    char *your_status;
 
     printf("\nEnter your number to be tested: ");
-    fgets(buffer, BUFFERSIZE, stdin);
+    choice = fgets(buffer, BUFFERSIZE, stdin);
 
     number_to_test = atoi(buffer);
     remainder = number_to_test % 2;
 
     if (remainder == 0) { printf("The number is even.\n"); }
-        if (atoi(buffer) == 2) { printf("And that's my favorite number!\n"); }
-    else if (atoi(buffer) == 13) { printf("That's an unlucky number!\n"); }
+        if (atoi(choice) == 2) { printf("And that's my favorite number!\n"); }
+    else if (atoi(choice) == 13) { printf("That's an unlucky number!\n"); }
     else { printf("The number is odd.\n"); }
 
       // Ternary min/max 2 variables
-    your_status = atoi(buffer) == 2 ? "You are awesome!" : "You suck.";
+    your_status = atoi(choice) == 2 ? "You are awesome!" : "You suck.";
     printf("\n%s\n", your_status);
 
     // SWITCH/CASE/DEFAULT
@@ -78,7 +79,7 @@ int main(void) {
 
     // While and Do-While
     int while_count = 1;
-    while(while_count <= 5) { 
+    while(while_count <= 5) {
         printf("%d\n", while_count);
         while_count++;
     }
@@ -111,19 +112,19 @@ int main(void) {
     int p = 10, q;
     while(p > 0) {
         printf("p = %d\nEnter q: ", p);
-        fgets(buffer, BUFFERSIZE, stdin);
-        q = atoi(buffer);
+        choice = fgets(buffer, BUFFERSIZE, stdin);
+        q = atoi(choice);
         while(q > 0) {
             printf("p x q = %d\n", p * q);
             if(q > 100) { break; }
             printf("Enter q: ");
-            fgets(buffer, BUFFERSIZE, stdin);
-            q = atoi(buffer);
+            choice = fgets(buffer, BUFFERSIZE, stdin);
+            q = atoi(choice);
         }
         if(q > 100) { break; }
         printf("Enter p: ");    // when q is 0 or null, get a new p
-        fgets(buffer, BUFFERSIZE, stdin);
-        p = atoi(buffer);
+        choice = fgets(buffer, BUFFERSIZE, stdin);
+        p = atoi(choice);
     }
 
 

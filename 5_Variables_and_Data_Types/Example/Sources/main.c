@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
 
     printf("\nNumber of Aruguments: %d\n", numberOfArguments);
     printf("Program Name: %s\n", programName);
-    
+
     for (int index = 1; index < argc; index++) {
         char* argumentForPrint = argv[index];
         printf("Argument %d: %s\n", index, argumentForPrint);
@@ -67,10 +67,11 @@ int main(int argc, char* argv[]) {
 
 
     // Playing with fgets and standard input
-    char buf[BUFFERSIZE];
+    char buffer[BUFFERSIZE];
+    char *userInput;
     printf("Enter a string: ");
-    fgets(buf, BUFFERSIZE, stdin);
-    printf("This is the string you entered: %s\n", buf);
+    userInput = fgets(buffer, BUFFERSIZE, stdin);
+    printf("This is the string you entered: %s\n", userInput);
 
 
     return 0;

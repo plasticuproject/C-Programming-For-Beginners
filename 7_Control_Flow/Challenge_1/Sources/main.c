@@ -45,11 +45,12 @@ int main(void) {
     double hours, overtime, gross, net;
     double low_tax, mid_tax = 0, high_tax = 0, total_tax;
     char buffer[BUFFERSIZE];
+    char *inputHours;
 
     // Get user input for number of hours worked
     printf("\nEnter number of hours worked: ");
-    fgets(buffer, BUFFERSIZE, stdin);
-    hours = atof(buffer);
+    inputHours = fgets(buffer, BUFFERSIZE, stdin);
+    hours = atof(inputHours);
 
     // Calculate gross pay
     if (hours > REG_HOURS) {

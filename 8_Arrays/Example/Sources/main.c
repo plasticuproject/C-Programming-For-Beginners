@@ -33,16 +33,17 @@ int main(void){
     long sum = 0;                // Sum of the numbers
     float average = 0.0f;        // Average of the numbers
     char buffer[BUFFERSIZE];     // Input char array
+    char *number;
 
     printf("\nEnter the 10 grades: \n");   // Prompt for input
 
     for(int i = 0; i < count; i++) {       // Read the ten numbers to be averaged
         printf("%2u> ", i + 1);
-        fgets(buffer, BUFFERSIZE, stdin);  // Read a grade
-        grades[i] = atoi(buffer);          // Convert input to int
-        if(grades[i] > 100) {              // Validate input
+        number = fgets(buffer, BUFFERSIZE, stdin);  // Read a grade
+        grades[i] = atoi(number);                   // Convert input to int
+        if(grades[i] > 100) {                       // Validate input
             printf("\nOnly numbers 1-100 are acceptable.\n");
-            break;                         // Kill if bad input detected
+            break;                                  // Kill if bad input detected
         }
         sum += grades[i];                  // Add it to sum
     }

@@ -35,17 +35,21 @@ int main(void) {
     double minutesInYear = (60 * 24 * 365);
     double Years = 0, Days = 0;
     char buffer[BUFFERSIZE];
+    char *userInput;
 
     // Prompt and get user input
      // He wanted me to use scanf() but forget that mess, scanf() is dumb
     printf("\nThis program excepts a value of minutes (1-999999999) and returns\n");
     printf("the amount of years and days those minutes fit into.\n");
     printf("\nEnter number of minutes: ");
-    fgets(buffer, BUFFERSIZE, stdin);
+    userInput = fgets(buffer, BUFFERSIZE, stdin);
 
     // Type conversions and calculations
-    minutes = atof(buffer);
-    if ((minutes < 1) || (strlen(buffer) > 10)) { printf("\nInvalid Input.\n"); return 1; }
+    minutes = atof(userInput);
+    if ((minutes < 1) || (strlen(userInput) > 10)) {
+        printf("\nInvalid Input.\n");
+        return 1;
+    }
     Years = (minutes / minutesInYear);
     Days = ((minutes % (int)minutesInYear) / 60 / 24);
 
