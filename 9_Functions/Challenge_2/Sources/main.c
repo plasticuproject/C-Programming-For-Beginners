@@ -56,7 +56,7 @@ int main(void) {
      *
     */
 
-    // Initialize board and variables to track players and turn count
+    // Initialize board and variables to track board state, players and turn count
     char boardArray[10] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
     _Bool playerTurn = 1;
     int turnCount = 2;
@@ -182,10 +182,10 @@ _Bool checkForWin(int turn, _Bool player, char *board) {
                 count++;
             }
         }
-        if ((count > 2) && (count >= (turn / 2))) { running = 0; }
+        if (count > 2) { running = 0; }
         count = 0;
     }
-    if (turn == 11) { running = 0; }
+    if (turn == 11) { running = 0; }    // Check for tie game
 
     return running;
 }
