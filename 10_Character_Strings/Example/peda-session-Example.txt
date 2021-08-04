@@ -1,8 +1,0 @@
-break *0x0bf7
-disable $bpnum
-break *0x0000555555554c1c
-disable $bpnum
-break *0x0000555555554b75
-break *0x0000555555554bd9
-break *0x0000555555554be1
-

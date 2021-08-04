@@ -12,7 +12,7 @@
 int strCount(char arr[]);
 void strCat(char result[], const char str1[], const char str2[]);
 _Bool strCmp(const char str1[], const char str2[]);
-char *printBool(const char str1[], const char str2[]);
+void printBool(const char str1[], const char str2[]);
 
 
 // main function
@@ -122,13 +122,11 @@ _Bool strCmp(const char str1[], const char str2[]) {
 
 
 // Wrapper to print strCmp() result
-char *printBool(const char str1[], const char str2[]) {
+void printBool(const char str1[], const char str2[]) {
 
     char *boolean[6];
 
     if (strCmp(str1, str2) != 1) { *boolean = "FALSE"; }
     else { *boolean = "TRUE"; }
     printf("%s = %s is %s.\n",str1, str2, *boolean);
-
-    return *boolean;
 }
