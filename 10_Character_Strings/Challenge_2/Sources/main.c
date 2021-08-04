@@ -173,17 +173,21 @@ void stringReverse(char *arr, size_t len) {
 void stringSort(char arr[][MAXSTRINGLEN], int len) {
 
     char buffer[MAXSTRINGLEN];
+    _Bool noSwap;
 
     for (int j = 0; j < (len - 1); j++) {
+        noSwap = 1;
         for (int i = 0; i < (len - 1); i++) {
             if (strcmp(arr[i], arr[i +1]) > 0) {
+                noSwap = 0;
                 strncpy(buffer, arr[i + 1], strlen(arr[i + 1]));
                 memset(arr[i + 1], '\0', strlen(arr[i + 1]));
-                strncpy(arr[i + 1], arr[1], strlen(arr[1]));
-                memset(arr[1], '\0', strlen(arr[1]));
-                strncpy(arr[1], buffer, strlen(buffer));
+                strncpy(arr[i + 1], arr[i], strlen(arr[i]));
+                memset(arr[i], '\0', strlen(arr[i]));
+                strncpy(arr[i], buffer, strlen(buffer));
                 memset(buffer, '\0', strlen(buffer));
             }
         }
+        if (noSwap) { break; }
     }
 }
