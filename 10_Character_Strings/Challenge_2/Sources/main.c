@@ -181,11 +181,11 @@ void stringSort(char arr[][MAXSTRINGLEN], int len) {
             if (strcmp(arr[i], arr[i +1]) > 0) {
                 noSwap = 0;
                 strncpy(buffer, arr[i + 1], strlen(arr[i + 1]));
-                memset(arr[i + 1], '\0', strlen(arr[i + 1]));
+                memset(arr[i + 1], '\0', sizeof(arr[i + 1]));
                 strncpy(arr[i + 1], arr[i], strlen(arr[i]));
-                memset(arr[i], '\0', strlen(arr[i]));
+                memset(arr[i], '\0', sizeof(arr[i]));
                 strncpy(arr[i], buffer, strlen(buffer));
-                memset(buffer, '\0', strlen(buffer));
+                memset(buffer, '\0', sizeof(buffer));
             }
         }
         if (noSwap) { break; }
